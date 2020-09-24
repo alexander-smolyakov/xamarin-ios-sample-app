@@ -1,0 +1,37 @@
+steps:
+
+- task: Bash@3
+  displayName: 'Set Xamarin & Mono'
+  inputs:
+    targetType: filePath
+    filePath: src/xamarin-ios/select-xamarin.sh
+    arguments: ${{ parameters.XAMARIN_SYMLINK }}
+
+- task: Bash@3
+  displayName: 'Set Xcode'
+  inputs:
+    targetType: filePath
+    filePath: src/xamarin-ios/select-xcode.sh
+    arguments: ${{ parameters.XCODE_VERSION }}
+
+- task: InstallAppleCertificate@1
+  displayName: 'Install an Apple certificate'
+  inputs:
+    certSecureFile: '$(apple_certificate_name)'
+    certPwd: '$(certificate.Password)'
+
+- task: InstallAppleProvisioningProfile@1
+  displayName: 'Install an Apple provisioning profile'
+  inputs:
+    provisioningProfileLocation: 'secureFiles'
+    provProfileSecureFile: 'profile_application.mobileprovision'
+
+- task: XamariniOS@1
+  displayName: 'Build Xamarin.iOS solution UsingUITest.sln'
+  inputs:
+    solutionFile: '$(build.sourcesdirectory)/src/xamarin-ios/UsingUITest/UsingUITest.sln'
+    configuration: 'Release'
+    buildToolOption: msbuild
+    signingOption: id
+    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
+    signingProvisioningProfileID: '$(ProvisioningProfileUUID)'
