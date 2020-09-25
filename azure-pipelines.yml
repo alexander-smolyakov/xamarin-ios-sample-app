@@ -7,5 +7,6 @@ pool:
 variables:
 - group: AppSigning
 
-steps:
-- template: 'xamarin-ios.yml'
+extends:
+    template: xamarin-ios.yml
+   
