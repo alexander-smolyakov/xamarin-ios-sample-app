@@ -1,5 +1,3 @@
-variables:
-- group: AppSigning
 
 stages:
   - stage: 'MacOS_AppCenter_Mojave'
