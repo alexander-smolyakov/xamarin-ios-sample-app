@@ -42,4 +42,3 @@ steps:
     packageApp: false
     signingOption: id
     signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
-    signingProvisioningProfileID: '$(ProvisioningProfileUUID)'
