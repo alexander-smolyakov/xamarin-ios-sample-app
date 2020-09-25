@@ -27,6 +27,12 @@ steps:
     provisioningProfileLocation: 'secureFiles'
     provProfileSecureFile: 'profile_application.mobileprovision'
 
+- task: InstallAppleProvisioningProfile@1
+  displayName: 'Install an Apple provisioning profile ext'
+  inputs:
+    provisioningProfileLocation: 'secureFiles'
+    provProfileSecureFile: 'profile_extension.mobileprovision'
+
 - task: XamariniOS@1
   displayName: 'Build Xamarin.iOS solution UsingUITest.sln'
   inputs:
