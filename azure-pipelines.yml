@@ -1,12 +1,8 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'macos-latest'
-
 variables:
 - group: AppSigning
 
 extends:
-    template: xamarin-ios.yml
-   
+  template: xamarin-ios.yml

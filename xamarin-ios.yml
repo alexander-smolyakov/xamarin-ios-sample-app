@@ -1,12 +1,5 @@
 stages:
-
-  - stage: 'MacOS_Internal_High_Sierra'
-    condition: and(succeeded(),  contains(variables.targetPools, 'Hosted Mac Internal High Sierra'))
-    dependsOn: []
-    jobs:
   - stage: 'MacOS_AppCenter_Mojave'
-    condition: and(succeeded(),  contains(variables.targetPools, 'Hosted Mac App Center Mojave'))
-    dependsOn: []
     jobs:
     - job: 'App1'
       pool:
@@ -55,8 +48,6 @@ stages:
           XAMARIN_SYMLINK: $(XAMARIN_SYMLINK)
           XCODE_VERSION: $(XCODE_VERSION)
   - stage: 'MacOS_AppCenter_Catalina'
-    condition: and(succeeded(),  contains(variables.targetPools, 'Hosted Mac App Center Catalina'))
-    dependsOn: []
     jobs:
     - job: 'App1'
       pool:
