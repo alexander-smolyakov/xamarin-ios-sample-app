@@ -22,12 +22,12 @@ steps:
 - task: CmdLine@2
   displayName: 'Restore Nuget'
   inputs:
-    script: nuget restore $(build.sourcesdirectory)/src/xamarin-ios/ToDoList.Forms/Todo.sln
+    script: nuget restore $(build.sourcesdirectory)/src/xamarin-ios/xamarin-test-app/xamarin-test-app.csproj
 
 - task: XamariniOS@1
   displayName: 'Build Xamarin.iOS solution'
   inputs:
-    solutionFile: '$(build.sourcesdirectory)/src/xamarin-ios/ToDoList.Forms/Todo.iOS/Todo.iOS.csproj'
+    solutionFile: '$(build.sourcesdirectory)/src/xamarin-ios/xamarin-test-app/xamarin-test-app.csproj'
     configuration: Release
     packageApp: False
     buildForSimulator: True
