@@ -33,6 +33,3 @@ steps:
     solutionFile: '$(build.sourcesdirectory)/src/xamarin-ios/xamarin-test-app/xamarin-test-app.csproj'
     configuration: 'Release'
     buildToolOption: msbuild
-    signingOption: id
-    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
-    signingProvisioningProfileID: '$(ProvisioningProfileUUID)'
