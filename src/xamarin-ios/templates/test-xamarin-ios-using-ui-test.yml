@@ -33,9 +33,13 @@ steps:
     provisioningProfileLocation: 'secureFiles'
     provProfileSecureFile: 'profile_extension.mobileprovision'
 
-- task: XamariniOS@2
+- task: XamariniOS@1
   displayName: 'Build Xamarin.iOS solution UsingUITest.sln'
   inputs:
     solutionFile: '$(build.sourcesdirectory)/src/xamarin-ios/xamarin-test-app.sln'
     configuration: 'Release'
     buildToolOption: msbuild
+    packageApp: false
+    signingOption: id
+    signingIdentity: '$(APPLE_CERTIFICATE_SIGNING_IDENTITY)'
+    signingProvisioningProfileID: '$(ProvisioningProfileUUID)'
