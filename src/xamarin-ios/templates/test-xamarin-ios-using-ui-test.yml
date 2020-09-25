@@ -30,6 +30,6 @@ steps:
 - task: XamariniOS@1
   displayName: 'Build Xamarin.iOS solution UsingUITest.sln'
   inputs:
-    solutionFile: '$(build.sourcesdirectory)/src/xamarin-ios/xamarin-test-app/xamarin-test-app.csproj'
+    solutionFile: '$(build.sourcesdirectory)/src/xamarin-ios/xamarin-test-app.sln'
     configuration: 'Release'
     buildToolOption: msbuild
