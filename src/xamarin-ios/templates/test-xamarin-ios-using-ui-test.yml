@@ -14,7 +14,7 @@ steps:
     filePath: src/xamarin-ios/select-xcode.sh
     arguments: ${{ parameters.XCODE_VERSION }}
 
-- task: InstallAppleCertificate@1
+- task: InstallAppleCertificate@2
   displayName: 'Install an Apple certificate'
   inputs:
     certSecureFile: 'DevCertificate.p12'
